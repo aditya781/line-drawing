@@ -1,0 +1,26 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base"],
+
+  // Only non-breaking updates
+  "major": { "enabled": false },
+
+  // Only one PR at a time
+  "prConcurrentLimit": 1,
+
+  // Custom branch name & PR name
+  "branchPrefix": "chore/renovate/",
+
+  "prTitle": "chore(deps): safe dependency updates",
+  "prBodyTemplate": "This PR updates all minor and patch dependencies safely.",
+
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "safe-updates",
+      "groupSlug": "safe-updates",
+      "branchName": "chore/renovate/safe-updates",
+      "prTitle": "chore(deps): update safe (minor + patch) dependencies"
+    }
+  ]
+}
